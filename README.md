@@ -17,8 +17,8 @@ markdown file.
 
 #### I've deduced that $T(n) \in \Theta(n^{3}logn)$ by this reasoning:
 
-    The worst case for mergesort is if every subarray in the data set is out of
-    order, so shifting and comparisons will need to happen for every element.
+The worst case for mergesort is if every subarray in the data set is out of
+order, so shifting and comparisons will need to happen for every element.
 
 ##### The steps in this algorithm are:
 1. For loop to check if i is greater than the array length and increment i to the
