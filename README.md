@@ -15,7 +15,7 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-#### I've deduced that $T(n) \in \Theta(n^{2}\log{n}^{2})$ by this reasoning:
+#### I've deduced that $T(n) \in \Theta(n^{3}\log{n})$ by this reasoning:
 
 The worst case for mergesort is if every subarray in the data set is out of
 order, so shifting and comparisons will need to happen for every element.
@@ -27,7 +27,8 @@ order, so shifting and comparisons will need to happen for every element.
 
     2. A nested for loop to check if k + i is greater than the array length and
        increment k by 2*i to set the bounds of the current sub array. On the worst 
-       case this will run on at most $\log_{2}n$
+       case this will run on at most $n$ since n will be divided by a constant factor
+       for each iteration which does not matter for asymptotic analysis.
 
        3. A while loop that checks if the merge is finished or if the merge does
           not need to be done. On the worst case this will iterate over the whole
@@ -38,13 +39,13 @@ order, so shifting and comparisons will need to happen for every element.
              (n)
     
     That would make the runtime equation equal to 
-    $\log_{2}n \cdot \log_{2}n \cdot n \cdot n$
+    $\log_{2}n \cdot n \cdot n \cdot n$
 
     which is equivalent to
-    $n^{2}\log_{2}n^{2}$
+    $n^{3}\log_{2}n$
 
     the log base is asymptotically insignificant, so the $\Theta$ bound for T(n) is
-    $\Theta(n^{2}\log{n}^{2})$
+    $\Theta(n^{3}\log{n})$
 
     
 #### Sources
