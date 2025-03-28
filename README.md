@@ -15,37 +15,63 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-#### I've deduced that $T(n) \in \Theta(n^{3}\log{n})$ by this reasoning:
+#### I've deduced that $T(n) \in \Theta(n^{2}\log(n)^{2})$ by this reasoning:
 
 The worst case for mergesort is if every subarray in the data set is out of
 order, so shifting and comparisons will need to happen for every element.
+ 
 
 ##### The steps in this algorithm are:
 1. For loop to check if i is greater than the array length and increment i to the
-   next power of 2. Each iteration of i will be the next power of 2 all the way
-   up to n for the worst case, so this step will run on at most $\log_{2}n$
 
-    2. A nested for loop to check if k + i is greater than the array length and
-       increment k by 2*i to set the bounds of the current sub array. On the worst 
-       case this will run on at most $n$ since n will be divided by a constant factor
-       for each iteration which does not matter for asymptotic analysis.
+next power of 2. Each iteration of i will be the next power of 2 all the way
 
-       3. A while loop that checks if the merge is finished or if the merge does
-          not need to be done. On the worst case this will iterate over the whole
-          array (n)
+up to n for the worst case, so this step will run on at most $\log_{2}n$
 
-          4. A while loop that shifts the array so the current value can be sorted
-             in place. On the worst case this will iterate over the whole array
-             (n)
-    
-    That would make the runtime equation equal to 
-    $\log_{2}n \cdot n \cdot n \cdot n$
+  
 
-    which is equivalent to
-    $n^{3}\log_{2}n$
+2. A nested for loop to check if k + i is greater than the array length and
 
-    the log base is asymptotically insignificant, so the $\Theta$ bound for T(n) is
-    $\Theta(n^{3}\log{n})$
+increment k by 2*i to set the bounds of the current sub array. On the worst
+
+case this will run on at most $n$ since n will be divided by a constant factor
+
+for each iteration which does not matter for asymptotic analysis.
+
+  
+
+3. A while loop that checks if the merge is finished or if the merge does
+
+not need to be done. On the worst case this will run on at most $\log_{2}n$
+
+since the subarray starts out small and doubles each iteration.
+
+  
+
+4. A while loop that shifts the array so the current value can be sorted
+
+in place. On the worst case this will iterate over the whole array
+
+(n)
+
+
+That would make the runtime equation equal to
+
+$n\log_{2}n  \cdot n\log_{2}n$
+
+where steps 1 and 2 are the first $n\log_{2}n$ and steps 3 and 4 are the second.
+
+  
+
+This is equivalent to:
+
+$n^{2}\log_{2}(n)^{2}$
+
+  
+
+The log base is asymptotically insignificant, so the $\Theta$ bound for T(n) is
+
+$\Theta(n^{2}\log(n)^{2})$
 
     
 #### Sources
